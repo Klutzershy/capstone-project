@@ -1,0 +1,56 @@
+<style type="text/css">
+.footer{
+	height:100%;
+}
+
+.bottombarpadding{
+	padding-left:5%;
+	padding-right:5%;
+	padding-top:2%;
+}
+
+.bottomtitle{
+	color: #c5c6c7;
+	font-weight: bold;
+	font-size: 20pt;
+	padding-bottom: 20px;
+}
+
+.contact{
+	color: #c5c6c7;
+	font-weight:bold;
+	font-size: 18pt;
+}
+
+.bottomsection{
+	float: left;
+	padding-left: 5%;
+	padding-right: 8%;
+}
+
+.bottommidsection{
+	float:left;
+	padding-left: 5%;
+	padding-right: 15%;
+}
+
+.bottomtext{
+	font-size: 16pt;
+	color: white;
+}
+
+.office{
+	margin-left: 14%;
+	margin-bottom: 20px;
+	box-shadow: 8px 8px 10px #aaa;
+	border-radius: 25px;
+}
+
+.icon{
+	height: 50px;
+	width:50px;
+	padding-top: 35px;
+	float: left;
+	padding-right: 20px;
+}
+</style>

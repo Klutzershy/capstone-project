@@ -1,0 +1,76 @@
+
+.forum{
+  margin-top:5%;
+  height:500px;
+  background-color: #C5C6C7;
+  border: solid 2px #66fcf1;
+  border-radius: 5%;
+  width:80%;
+  position: relative;
+  margin-left: 2%;
+}
+
+.form{
+  margin-top:5%;
+  background-color: #C5C6C7;
+  border: solid 2px #66fcf1;
+  border-radius: 5%;
+  width:80%;
+  position: relative;
+  margin-left: 2%;
+  color: #66fcf1;
+}
+
+form{
+  margin: 5%;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #1f2833;
+}
+
+.table{
+  margin: 7% 5% 0 5%;
+  color: white;
+  border: solid 1px #66fcf1;
+  width:80%;
+}
+
+.headerT{
+  width:200px;
+  background-color:#45a29e ;
+}
+
+.Col{
+  border: solid 1px #66fcf1;
+}
+
+td{
+  padding:3px;
+  height:15px;
+  border: solid 1px #66fcf1;
+
+}
+
+.entryButton{
+  background-color: #45a29e;
+
+  border: solid 1px #66fcf1;
+  text-align:center;
+}
+
+.entry{
+  float:right;
+  background-color: #45a29e;
+  border: solid 1px #66fcf1;
+  border-radius: 5%;
+  height: 20px;
+  width: 100px;
+  margin-right: 10%;
+  margin-top:5%;
+  text-align:center;
+}

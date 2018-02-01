@@ -1,0 +1,40 @@
+.donateWrapper {
+	width: 100%;
+	background-color: #1f2833;
+	color: white;
+}
+.donateForm{
+	border-radius: 25px;
+    border: 2px solid #66fcf1;
+	background: #c5c6c7;
+    padding: 20px; 
+    width: 500px;
+    height: 450px;  
+	margin-left: 650px;
+	
+}
+
+.donateInner{
+	margin-top: 15%;
+	margin-left: 15%;
+}
+
+.donateLarge{
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 700%;
+	color: #66fcf1;
+	margin-top: 0px;
+	margin-left: 15%;
+	margin-bottom:0px;
+}
+
+.weNeed{
+	margin-top: 0px;
+	margin-left: 35%;
+	color: #45a29e;
+}
+
+.lorem{
+	font-style: italic;
+	
+}

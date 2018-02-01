@@ -1,0 +1,36 @@
+﻿
+.login_email {
+	text-align:left;
+}
+
+.login_pass {
+	text-align:left;
+}
+
+.login_inform {
+	text-align:center;
+	margin-top:50px;
+}
+
+form {
+	text-align:center;
+	margin:40px 0px;
+}
+
+.loginarea{
+	border-radius: 25px;
+	border: 2px solid #66fcf1;
+	background: #c5c6c7;
+	 width: 500px;
+    height: 450px; 
+	margin-left: 650px;
+}
+
+/*
+input {
+	width:300px;
+	height:30px;
+	font-size:large;
+	margin:5px 0px;
+
+}*/

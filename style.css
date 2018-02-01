@@ -1,0 +1,121 @@
+<style type="text/css">
+
+.body{
+	width:100%;
+	height:100%;
+	margin:0;
+	padding-bottom:5%;
+	background: #1f2833;
+}
+
+.sidebar{
+	background: #c5c6c7;
+	height:750px;
+	width:300px;
+	margin: 8% 1% 1% 3%;
+	border-radius:25px;
+	float: left;
+	border: 2px solid #66fcf1;
+}
+
+.sidebartext{
+	text-align:center;
+}
+
+li{
+    margin-top: 10px;
+	padding-top: 15px;
+	padding-bottom:15px;
+    border-bottom:1px solid grey;
+}
+
+.sidebarpadding{
+	padding:10%;
+}
+
+.mainpadding{
+	padding:5%;
+}
+
+.main{
+	background:#c5c6c7;
+	height:750px;
+	width:1100px;
+	border-radius:25px;
+	overflow: hidden;
+	margin: 8% 5% 1% 5%;
+	border: 2px solid #66fcf1;
+}
+
+.maintitle{
+	text-align:center;
+	font-size: 200%;
+	margin-bottom: 5%;
+	font-weight: bold;
+}
+
+.mainbody{
+	text-align:center;
+	font-size: 130%;
+}
+
+.bottombar{
+	background: #c5c6c7;
+	height: 200px;
+	width: 1420px;
+	border-radius: 25px;
+	margin: 0 0 0 3%;
+	border: 2px solid #66fcf1;
+}
+
+.bottombarpadding{
+	padding-left:5%;
+	padding-right:5%;
+	padding-top:2%;
+}
+
+.bottomtitle{
+	color: #1f2833;
+	font-weight: bold;
+	font-size: 20pt;
+	padding-bottom: 20px;
+}
+
+.contact{
+	color: #1f2833;
+	font-weight:bold;
+	font-size: 18pt;
+}
+
+.bottomsection{
+	float: left;
+	padding-left: 5%;
+	padding-right: 8%;
+}
+
+.bottommidsection{
+	float:left;
+	padding-left: 5%;
+	padding-right: 15%;
+}
+
+.bottomtext{
+	font-size: 16pt;
+	color: #1f2833;
+}
+
+.office{
+	margin-left: 14%;
+	margin-bottom: 20px;
+	box-shadow: 8px 8px 10px #aaa;
+	border-radius: 25px;
+}
+
+.icon{
+	height: 50px;
+	width:50px;
+	padding-top: 35px;
+	float: left;
+	padding-right: 20px;
+}
+</style>
