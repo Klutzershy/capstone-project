@@ -1,20 +1,36 @@
-<div class="header">
-	<div class="headerarea">
-		<div class="logo"><a href=""><img src="images/logo.png" alt = "logo"></a></div>
-		<div class="navbar">
-			<div class="navbutton"><a href="./index.php?page=main"><img src="./images/home_button.png" alt = "nav"></a></div>
-			<div class="navbutton"><a href="./index.php?page=about"><img src="./images/about_button.png" alt = "about"></a></div>
-			<?php session_start(); if (($_SESSION['logged_in']) == True) { ?>
-			<div class="navbutton"><a href="logout.php"><img src="./images/logout_button.png" alt ="logout"></a></div>
-			<?php } else { ?>
-			<div class="navbutton"><a href="./index.php?page=login"><img src="./images/login_button.png" alt = "login"></a></div>
-			<?php
-			}
-			?>
-			<div class="navbutton"><a href="./index.php?page=donate"><img src="./images/donate_button.png" alt = "donate"></a></div>
-		</div>
-		
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Magical Movie Marks</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.php?page=main">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index.php?page=about">About</a>
+          </li>
+					<li class="nav-item">
+            <a class="nav-link" href="#">Place</a>
+          </li>
+					<li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav my-2 my-md-0">
+					<li class="nav-item">
+						<?php session_start(); if (($_SESSION['logged_in']) == True) { ?>
+						<a class="nav-link" href="logout.php">LogOut</a>
+						<?php } else { ?>
+						<a class="nav-link" href="./index.php?page=login">LogIn</a>
+						<?php
+						}
+						?>
+					</li>
+				</ul>
+      </div>
+</nav>
+
 		<div class="logged_in_user"><?php echo $_SESSION['sess_username']; ?></div>
-		
-	</div>
-</div>

@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="bd-footer">
 	<div class="bottombarpadding">
 				<div class="bottomsection">
 					<div class="bottomtitle">
