@@ -29,10 +29,16 @@ if(!empty($_GET['search'])){
 	<button type = "submit">search</button>
 	<br>
 	<?php
+	$prefix = "https://cf2.imgobject.com/t/p/w500";
 
-	foreach($search_array[results] as $movie){
-			echo $movie['title'] . " released: " . $movie[release_date] . "<br>";
-		}
+		foreach($search_array[results] as $movie){
+				$s.="<p><img src= $prefix.$movie[poster_path] height=80 width=60/></p>";
+				$s.="<p>Title: $movie[original_title]<br>Release Date: $movie[release_date]</p>";
+
+
+			}
+
+		echo $s;
 
 
 	?>
