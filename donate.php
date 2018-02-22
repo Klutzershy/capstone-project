@@ -24,7 +24,7 @@ if(!empty($_GET['search'])){
 
 <p> Search for movie by title </p>
 
-<form action = "">
+<form action = "./donate.php">
 	<input type = "text" name = "search"/>
 	<button type = "submit">search</button>
 	<br>
