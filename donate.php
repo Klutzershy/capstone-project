@@ -12,7 +12,7 @@
 <?php
 
 if(!empty($_GET['search'])){
-	$search_url = 'https://api.themoviedb.org/3/search/movie?api_key=2b026bda7ea9b58930161475b7d89a62&language=en-US&query=' . $_GET['search'];
+	$search_url = 'https://api.themoviedb.org/3/search/movie?api_key=2b026bda7ea9b58930161475b7d89a62&language=en-US&query=' .  urlencode($_GET['search']) . '&page=1&include_adult=false';
 
 	$search_json = file_get_contents($search_url);
 	$search_array = json_decode($search_json, true);
