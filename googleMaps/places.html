@@ -18,8 +18,9 @@
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: Philadelphia,
-          radius: 500,
-          type: ['movie']
+          radius: 50000,
+          type: ['store'],
+          type: ['movie_theater']
         }, callback);
       }
 
