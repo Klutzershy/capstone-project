@@ -15,8 +15,9 @@
 }
 
 .donateInner{
-	margin-top: 15%;
+
 	margin-left: 15%;
+	color: black;
 }
 
 .donateLarge{
@@ -38,6 +39,7 @@
 	font-style: italic;
 
 }
+
  /* testing for Patrick
  API Key (v3 auth)
 2b026bda7ea9b58930161475b7d89a62
