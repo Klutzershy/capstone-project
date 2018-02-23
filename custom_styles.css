@@ -1,0 +1,18 @@
+
+/*Footer Styles*/
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.text-color {
+  color:white;
+}
+.footer-color {
+  background-color:rgb(52, 58, 64);
+}
+.footer-color-two {
+  background-color:rgb(44, 49, 54);
+}

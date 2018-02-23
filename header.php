@@ -16,7 +16,7 @@
             <a class="nav-link" href="#">Place</a>
           </li>
 					<li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link" href="./index.php?page=profile">Profile</a>
           </li>
         </ul>
         <ul class="navbar-nav my-2 my-md-0">
@@ -33,4 +33,4 @@
       </div>
 </nav>
 
-		<div class="logged_in_user"><?php echo $_SESSION['sess_username']; ?></div>
+		

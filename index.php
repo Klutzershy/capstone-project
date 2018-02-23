@@ -8,13 +8,8 @@
 
 <!-- Bootstrap core CSS (Must be First CSS Link) -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<!--<link type="text/css" href="bootstrap/bootstrap.css" rel="stylesheet"/>
-<link type="text/css" href="styles.css" rel="stylesheet"/> <!-- bradly -->
-<!--<link rel="stylesheet" type="text/css" href="login_styles.css" /> <!-- bradly -->
-<!--<link rel="stylesheet" type="text/css" href="footer_styles.css" /> <!-- bradly -->
-<!--<link rel = "stylesheet" type = "text/css" href = "projectCss.css" /> <!-- patrick f -->
-<!--<link rel = "stylesheet" type = "text/css" href = "stylesp.css" /> <!-- patrick c -->
-<!--<link rel = "stylesheet" type = "text/css" href = " style.css" /> <!-- brendon -->
+<link type="text/css" href="custom_styles.css" rel="stylesheet"/>
+
 <title>Capstone Project</title>
 </head>
 
@@ -22,14 +17,16 @@
 	<?php
 		session_start();
 		include 'header.php';
-
+		if (!isset($_SESSION['logged_in'])) {
+			header('Location: login.php');
+		}
 
 	?>
 
 	<?php
 		switch($_GET['page']) {
 			case 'main':
-				include 'finalHome.php';
+				include 'profile.php';
 				break;
 			case 'about':
 				include 'about.php';
@@ -40,11 +37,11 @@
 			case 'donate':
 				include 'donate.php';
 				break;
-			case 'finalEntry':
-				include 'finalEntry.php';
+			case 'profile':
+				include 'profile.php';
 				break;
 			default:
-				include 'finalHome.php';
+				include 'profile.php';
 				break;
 		}
 	?>
