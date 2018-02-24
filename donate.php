@@ -18,7 +18,7 @@ if(!empty($_GET['search'])){
 
 
 <form action = "./donate.php">
-	<input type = "text" name = "search" placeholder = "Search by Genre"/>
+	<input type = "text" name = "search" placeholder = "Search by Title"/>
 	<button type = "submit">Search</button>
 	<br>
 </form>
