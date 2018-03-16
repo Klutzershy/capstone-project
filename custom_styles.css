@@ -1,4 +1,13 @@
 
+.login_text{
+  margin-top: 20%;
+}
+
+.login_backg{
+  background-image: url("images/Cinema2.jpeg");
+  background-size: cover;
+}
+
 /*Footer Styles*/
 
 .footer {
