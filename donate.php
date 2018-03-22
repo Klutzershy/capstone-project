@@ -92,7 +92,7 @@
 
 
 if(!empty($_GET['search'])){
-	$search_url = 'https://api.themoviedb.org/3/search/movie?api_key=2b026bda7ea9b58930161475b7d89a62&language=en-US&query=' . urlencode($_GET['search']) . '&page=1&include_adult=false';
+	$search_url = 'https://api.themoviedb.org/3/search/movie?api_key=2b026bda7ea9b58930161475b7d89a62&language=en-US&query=' . urlencode($_GET['search']) . '&page=1&include_adult=false&region=US%7CCA';
 
 	$search_json = file_get_contents($search_url);
 	$search_array = json_decode($search_json,true);
@@ -102,27 +102,50 @@ if(!empty($_GET['search'])){
 	$prefix = "https:/image.tmdb.org/t/p/w500/";
 
 	if(!empty($_GET['search']) and !($_GET['gens'] == '')){
-	echo "You are searching for movies with the words: " . $_GET['search'] . " in the " . ucfirst($_GET['gens']) . " category.";
+	echo "You are searching for movies with the words: " . ucfirst($_GET['search']) . " in the " . ucfirst($_GET['gens']) . " category.";
 	}
 	else{
 		echo "Enter a valid search and genre!";
 	}
 
-$rec = array();
+	$rec = array(); //array to get movie ids
+	$title = array(); //array to get movie titles
+
 
 	foreach($search_array[results] as $movie){
 
 			if(in_array($genCode, $movie[genre_ids])){
+				if($movie[original_language] == "en"){
 				$s.="<p><img src= $prefix.$movie[poster_path] height=80 width=60/></p>";
-				$genArray = implode(" " ,$movie[genre_ids]);
-				$s.="<p>Title: $movie[original_title]<br>Release Date: $movie[release_date]<br>Genre ID: $genArray</p>";
-				//array_push($rec, $movie[id]); //getting movie ids
-				//$record = implode(" ", $rec); //turning into a string
+				$s.="<p>Title: $movie[original_title]<br>Release Date: $movie[release_date]</p>";
+				array_push($rec, $movie[id]); //push ids into array
+				array_push($title, $movie[original_title]); //push titles into array
+				$record = array_pop(array_reverse($rec)); //return first movie id
+				$titles = array_pop(array_reverse($title)); //return first movie title
 			}
-
+			}
 		}
 
 	echo $s;
-	//echo $record; //outputting a string of movie ids
+
+	$search = ucfirst($_GET['search']);
+
+	$servername = "localhost";
+	$username = "root";
+	$password = "mysql";
+	$databaseName = "finalData";
+
+
+	$connection = new mysqli($servername, $username, $password, $databaseName);
+
+	if ($connection->connect_error) {
+		die("Connection failed: " . $connection->connect_error);
+	}
+
+	$insertSQL = "INSERT INTO movSearch (search, movID, firstMov, genCode) VALUES ('$search', '$record', '$titles', '$genCode')";
+
+
+
+	$connection->close();
 
 	?>
