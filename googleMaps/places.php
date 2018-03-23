@@ -1,7 +1,7 @@
 <?php
-$url = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query=theaters+in+Philadelphia&key=AIzaSyCJcbdw_nWmu-ZogZc0TbOPDWDKVDCd3MQ";
+$url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=theaters+in+Philadelphia&key=AIzaSyCJcbdw_nWmu-ZogZc0TbOPDWDKVDCd3MQ";
 
-function get_xml( $url )
+function get_json( $url )
 {
     //found some options on stack overflow
     $options = array(
@@ -16,20 +16,49 @@ function get_xml( $url )
         CURLOPT_SSL_VERIFYPEER => false
     );
 
-    $ch      = curl_init( $url );
-    curl_setopt_array( $ch, $options );
-    $content = curl_exec( $ch );
-    $err     = curl_errno( $ch );
-    $errmsg  = curl_error( $ch );
-    $header  = curl_getinfo( $ch );
-    curl_close( $ch );
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    $result = curl_exec($ch);
+    curl_close($ch);
 
-    $header['errno']   = $err;
-    $header['errmsg']  = $errmsg;
-    $header['content'] = $content;
-    header('Content-type: application/xml');
-    return $header['content'];
+    return ($result);
 }
 
-echo get_xml($url);
-?>
+$urlX = get_json($url);
+
+
+$jsonD = json_decode($urlX,true);
+
+$server = "localhost";
+$username = "root";
+$password = "mysql";
+$databaseName = "projectData";
+
+$connection = new mysqli($server,$username,$password,$databaseName);
+
+$var = $jsonD['results'];
+
+$name = "";
+$address = "";
+for ($i=0; $i < 20; $i++) {
+  $name = $name."'".$var[$i]{'name'}."'".",";
+ }
+
+for ($i=0; $i < 20; $i++) {
+  $address = $address."'".$var[$i]{'formatted_address'}."'".",";
+ }
+
+ $name = rtrim($name, ",");
+ $address = rtrim($address, ",");
+
+ $insertSQL = "INSERT INTO cap (Name,Address) VALUES ('$name','$address')";
+
+ if($connection->query($insertSQL) === TRUE){
+   echo "Success!";
+       }else{
+   echo "Error: ".$insertSQL."<br>".$connection->error;
+       }
+ $connection->close();
+ ?>
