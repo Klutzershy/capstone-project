@@ -9,7 +9,7 @@
 </div>
 
 
-  <div class="text-center"><input class="btn btn-info" type="button" value="Log In with Twitter"></div>
+  <div class="text-center"><input class="btn btn-info" type="button" onclick="login.php" value="Log In with Twitter"></div>
 </div>
 <?php include 'bootstrap_js.php'; ?>
 </body>
