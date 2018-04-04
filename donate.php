@@ -1,15 +1,17 @@
 
-<?php
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-//Patrick Foltyn 		2/23/2018
-//Capstone Project
+<div class = "jumbotron">
+	<p class="lead">How do you want to search?</p>
+</div>
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#genre" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Search by Genre</a>
+   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#review" aria-expanded="false" aria-controls="multiCollapseExample2">Search by Review</button>
+</p>
 
-?>
-
-
-
-
-<form action = "./donate.php">
+<div class="collapse" id="genre">
+  <div class="card card-body">
+   <form action = "./donate.php">
 	<input type = "text" name = "search" placeholder = "Search by Title"/>
 	<br>
 	<select name="gens">
@@ -144,8 +146,35 @@ if(!empty($_GET['search'])){
 
 	$insertSQL = "INSERT INTO movSearch (search, movID, firstMov, genCode) VALUES ('$search', '$record', '$titles', '$genCode')";
 
+	if ($connection->query($insertSQL) === TRUE) {
 
+	}
 
+	else {
+		echo "Error: " . $connection->error;
+	}
 	$connection->close();
+
+	?>
+  </div>
+</div>
+
+
+
+
+
+<div class="col">
+    <div class="collapse multi-collapse" id="review">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 	?>
