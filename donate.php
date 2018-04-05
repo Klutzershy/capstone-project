@@ -1,13 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<div class = "jumbotron">
-	<p class="lead">How do you want to search?</p>
-</div>
-<p>
-  <a class="btn btn-primary" data-toggle="collapse" href="#genre" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Search by Genre</a>
-   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#review" aria-expanded="false" aria-controls="multiCollapseExample2">Search by Review</button>
-</p>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap core CSS (Must be First CSS Link) -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link type="text/css" href="custom_styles.css" rel="stylesheet"/>
+
+	<title>Capstone Project</title>
+</head>
+
+<body>
+	<div class = "jumbotron">
+		<p class="lead">How do you want to search?</p>
+	</div>
+
+	<p>
+  	<a class="btn btn-primary" data-toggle="collapse" href="#genre" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Search by Genre</a>
+   	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#review" aria-expanded="false" aria-controls="multiCollapseExample2">Search by Review</button>
+	</p>
 
 <div class="collapse" id="genre">
   <div class="card card-body">
@@ -177,4 +191,4 @@ if(!empty($_GET['search'])){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-	?>
+</body>
