@@ -146,10 +146,10 @@ if(!empty($_GET['search'])){
 
 	$search = ucfirst($_GET['search']);
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "mysql";
-	$databaseName = "finalData";
+	$servername = 160.153.92.96;
+	$username = "cap";
+	$password = "moviesproject";
+	$databaseName = "capstone2018";
 
 
 	$connection = new mysqli($servername, $username, $password, $databaseName);
