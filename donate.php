@@ -3,29 +3,27 @@
 
 
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Bootstrap core CSS (Must be First CSS Link) -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link type="text/css" href="custom_styles.css" rel="stylesheet"/>
+<!-- Bootstrap core CSS (Must be First CSS Link) -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link type="text/css" href="custom_styles.css" rel="stylesheet"/>
 
-	<title>Capstone Project</title>
+<title>Capstone Project</title>
 </head>
 
-<body>
-	<div class = "jumbotron">
-		<p class="lead">How do you want to search?</p>
-	</div>
+<body class = "login_backg">
 
-	<p>
-  	<a class="btn btn-primary" data-toggle="collapse" href="#genre" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Search by Genre</a>
-   	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#review" aria-expanded="false" aria-controls="multiCollapseExample2">Search by Review</button>
-	</p>
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#genre" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Search by Genre</a>
+   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#review" aria-expanded="false" aria-controls="multiCollapseExample2">Search by Review</button>
+</p>
 
 <div class="collapse" id="genre">
   <div class="card card-body">
-   <form action = "./donate.php">
+
+   <form action = "./Search.php">
 	<input type = "text" name = "search" placeholder = "Search by Title"/>
 	<br>
 	<select name="gens">
@@ -128,6 +126,7 @@ if(!empty($_GET['search'])){
 	$title = array(); //array to get movie titles
 
 
+if(is_array($search_array)){
 	foreach($search_array[results] as $movie){
 
 			if(in_array($genCode, $movie[genre_ids])){
@@ -141,33 +140,78 @@ if(!empty($_GET['search'])){
 			}
 			}
 		}
-
+	}
 	echo $s;
+
+	if(empty($rec)){
+		$record = 0;
+	}
+
+	if(empty($title)){
+		$titles = " ";
+	}
+
+
+	require 'db_conn.php';
 
 	$search = ucfirst($_GET['search']);
 
-	$servername = 160.153.92.96;
-	$username = "cap";
-	$password = "moviesproject";
-	$databaseName = "capstone2018";
 
-
-	$connection = new mysqli($servername, $username, $password, $databaseName);
-
-	if ($connection->connect_error) {
-		die("Connection failed: " . $connection->connect_error);
-	}
-
-	$insertSQL = "INSERT INTO movSearch (search, movID, firstMov, genCode) VALUES ('$search', '$record', '$titles', '$genCode')";
-
-	if ($connection->query($insertSQL) === TRUE) {
-
-	}
-
-	else {
-		echo "Error: " . $connection->error;
-	}
+function idInDatabase($dbMov){
+	$connection = mysqli_connect("localhost", "root" , "mysql" , "finalData");
+	$result = mysqli_query($connection, "SELECT movID FROM movSearch WHERE movID = $dbMov");
+	$result = mysqli_fetch_assoc($result);
+	$chkID = $result['movID'];
 	$connection->close();
+	if($dbMov == $chkID){
+		return TRUE;
+	} else {
+		return FALSE;
+	}
+}
+
+function updateDatabase($dbMov,$dbSearch,$dbFirst,$dbGen) {
+	$connection = mysqli_connect("localhost", "root" , "mysql" , "finalData");
+	$result = mysqli_query($connection, "SELECT movID FROM movSearch WHERE movID = $dbMov");
+    $result = mysqli_fetch_assoc($result);
+    $chkSearch = $result['search'];
+    $chkFirst = $result['firstMov'];
+    $chkGen = $result['genCode'];
+    $connection->close();
+    if($dbSearch != $chkSearch){
+      $insertSQL = "INSERT INTO movSearch (search) VALUES ('$dbSearch')";
+    }
+    if($dbFirst != $chkFirst){
+      $insertSQL = "INSERT INTO movSearch (firstMov) VALUES ('$dbFirst')";
+    }
+    if($dbGen != $chkGen){
+      $insertSQL = "INSERT INTO movSearch (genCode) VALUES ('$dbGen')";
+    }
+  }
+
+	$dbMov = $record;
+	$dbSearch = $search;
+	$dbFirst = $titles;
+	$dbGen = $genCode;
+
+if(!idInDatabase($dbMov)){
+
+
+    $insertSQL = "INSERT INTO movSearch (search, movID, firstMov, genCode) VALUES ('$search', '$record', '$titles', '$genCode')";
+
+    if($connection->query($insertSQL) === TRUE){
+
+      echo "Success";
+    } else {
+      echo "Error: ".$insertSQL."<br/>".$connection->error;
+    }
+  }
+
+
+  updateDatabase($dbMov,$dbSearch,$dbFirst,$dbGen);
+
+  $connection->close();
+
 
 	?>
   </div>
