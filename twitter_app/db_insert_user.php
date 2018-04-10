@@ -24,16 +24,38 @@
     $chkUserScrN = $result['user_scr_name'];
     $chkUserLoc = $result['user_location'];
     $chkUserImg = $result['user_profile_img'];
-    $connection->close();
+    echo $chkUserLoc;
+    echo $dbLocation;
+    echo $chkUserScrN;
     if($dbScreenName != $chkUserScrN){
-      $insertSQL = "INSERT INTO user (user_scr_name) VALUES ('$dbScreenName')";
+      $insertSQL = "UPDATE `user` SET `user_scr_name` = '$dbScreenName' WHERE `user_ID` = '$dbUserId'";
+      if($connection->query($insertSQL) === TRUE){
+
+        echo "Success";
+      } else {
+        echo "Error";
+      }
     }
     if($dbLocation != $chkUserLoc){
-      $insertSQL = "INSERT INTO user (user_location) VALUES ('$dbLocation')";
+      $insertSQL = "UPDATE `user` SET `user_location`= '$dbLocation' WHERE `user_ID` = '$dbUserId'";
+      if($connection->query($insertSQL) === TRUE){
+
+        echo "Success";
+      } else {
+        echo "Error";
+      }
+
     }
     if($dbImg != $chkUserImg){
-      $insertSQL = "INSERT INTO user (user_profile_img) VALUES ('$dbImg')";
+      $insertSQL = "UPDATE `user` SET `user_profile_img` = '$dbImg' WHERE `user_ID` = '$dbUserId'";
+      if($connection->query($insertSQL) === TRUE){
+
+        echo "Success";
+      } else {
+        echo "Error";
+      }
     }
+    $connection->close();
   }
 
 

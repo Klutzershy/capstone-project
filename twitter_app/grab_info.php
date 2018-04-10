@@ -9,5 +9,3 @@
 	$_SESSION['sess_location'] = $result['user_location'];
   $connection->close();
  ?>
-
- // Testing
