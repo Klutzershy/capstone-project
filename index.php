@@ -34,8 +34,8 @@
 			case 'login':
 				include 'login.php';
 				break;
-			case 'donate':
-				include 'donate.php';
+			case 'search':
+				include 'search.php';
 				break;
 			case 'profile':
 				include 'profile.php';

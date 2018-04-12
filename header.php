@@ -13,7 +13,7 @@
             <a class="nav-link" href="./index.php?page=about">About</a>
           </li>
 					<li class="nav-item">
-            <a class="nav-link" href="#">Place</a>
+            <a class="nav-link" href="./index.php?page=search">Search</a>
           </li>
 					<li class="nav-item">
             <a class="nav-link" href="./index.php?page=profile">Profile</a>
@@ -32,5 +32,3 @@
 				</ul>
       </div>
 </nav>
-
-		
