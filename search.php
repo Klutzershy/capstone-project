@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -239,19 +236,20 @@ if(!idInDatabase($dbMov)){
 
 
 <div class = "container">
-<div class="col">
-    <div class="collapse multi-collapse" id="review">
-      <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-      </div>
+<div class = "col">
+    <div class="collapse w-100 " id="review">
+      <div class="card card-body ">
+
+	  	<?php include 'nyt.php'?>
+
+	  </div>
     </div>
   </div>
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<?php include 'bootstrap_js.php'; ?>
 
 </div>
 

@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Movie Reviews</title>
-</head>
-<body>
-	<h1>New York Times Movie Reviews</h1>
 
-	<form action = "./index.php">
+
+	<form action = "./search.php">
 		<input type="text" name="query" placeholder="Search by Title">
+		<button type = "sub">Submit</button>
 	</form>
 
- 	<?php
 
+<?php
+
+	if(!empty($_GET['query'])){
  		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
@@ -29,30 +26,13 @@
 
 		$result = json_decode(curl_exec($curl), true);
 
-		// echo "<pre>";
-		// print_r($result);
-		// echo "<pre>";
-
-
-		$servername = "localhost";
-		$username = "root";
-		$password = "mysql";
-		$databasename = "movie_reviews";
-
-		$connection = new mysqli($servername, $username, $password, $databasename);
-
-		if ($connection->connect_error){
-			die("Connection failed: " . $connection->connect_error);
-		}
-
+		require 'db_conn.php';
 
 		$item = $result[results];
 
 
 		/* Sets all variables which will be put into the database */
-		$byLine          = $item[0]{'byline'};
-		$criticsPick     = $item[0]{'critics_pick'};
-		$dateUpdated     = $item[0]{'date_updated'};
+
 		$displayTitle    = mysqli_real_escape_string($connection,
 													 $item[0]{'display_title'});
 		$headline        = mysqli_real_escape_string($connection,
@@ -62,10 +42,6 @@
 		$linkType        = $item[0][link]{'type'};
 		$linkUrl         = $item[0][link]{'url'};
 		$rating          = $item[0]{'mpaa_rating'};
-		// $mediaHeight     = $item[0][multimedia]{'height'};
-		// $mediaSource     = $item[0][multimedia]{'src'};
-		// $mediaType       = $item[0][multimedia]{'type'};
-		// $mediaWidth      = $item[0][multimedia]{'width'};
 		$openingDate     = $item[0]{'opening_date'};
 		$publicationDate = $item[0]{'publication_date'};
 		$summaryShort    = mysqli_real_escape_string($connection,
@@ -92,16 +68,11 @@
 
 
 		$insertSQL = 	"INSERT INTO `reviewValues`
-								 (byLine, criticsPick, dateUpdated,
-								 displayTitle, headline, linkText, linkType,
-								 linkUrl, rating, openingDate,
-								 publicationDate, summaryShort)
+								 (displayTitle,openingDate, headline,
+								 linkUrl, rating, summaryShort)
 
-					 	VALUES ('$byLine', '$criticsPick', '$dateUpdated',
-					  		  '$displayTitle', '$headline', '$linkText',
-					  		  '$linkType', '$linkUrl', '$rating',
-							  '$openingDate', '$publicationDate',
-							  '$summaryShort')";
+					 	VALUES ('$displayTitle','$openingDate', '$headline',
+					  		  '$linkUrl', '$rating', '$summaryShort')";
 
 
 		if ($connection->query($insertSQL) === TRUE){
@@ -111,8 +82,5 @@
 		}
 
 		$connection->close();
-
- 	?>
-
-</body>
-</html>
+	}
+?>
