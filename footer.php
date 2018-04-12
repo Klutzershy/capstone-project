@@ -8,9 +8,9 @@
             <div class="col-md-4">
 							<h5>Contact Us</h5>
 							<span class="contact" style="padding-right:20px;">Phone:</span>
-							<span class="bottomtext">(852)594-3258</span><br>
+							<span class="bottomtext">(999)999-9999</span><br>
 							<span class="contact" style="padding-right:47px">Fax:</span>
-							<span class="bottomtext">369-564-5985</span><br>
+							<span class="bottomtext">999-999-9999</span><br>
 							<span class="contact" style="padding-right:22px">Email:</span>
 							<span class="bottomtext">office@example.com</span>
             </div>
@@ -18,25 +18,22 @@
 
             <!--Second column-->
             <div class="col-md-4">
-                <h5 class="title">Links</h5>
+                <h5 class="title">Connect with us!</h5>
                 <ul>
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
+                    <li><a href="https://www.twitter.com">Twitter</a></li>
+                    <li><a href="https://www.linkedin.com">LinkedIn</a></li>
+                    <li><a href="https://www.reddit.com">Reddit</a></li>
+                    <li><a href="https://www.youtube.com">Youtube</a></li>
                 </ul>
             </div>
             <!--/.Second column-->
 
 						<!--Third Column -->
 						<div class="col-md-4">
-                <h5 class="title">Links</h5>
-                <ul>
-                    <li><a class="btn-floating btn-sm rgba-white-slight mr-xl-4"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
-                </ul>
+                <h5 class="title">What is this site?</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin faucibus eros non tellus lacinia dictum.
+                   Duis tincidunt nunc ac laoreet fermentum. Nunc sit amet leo et orci porta maximus.
+                    Nullam ac scelerisque neque.</p>
             </div>
 						<!-- End of Third -->
         </div>

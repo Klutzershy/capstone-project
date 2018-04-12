@@ -24,9 +24,6 @@
     $chkUserScrN = $result['user_scr_name'];
     $chkUserLoc = $result['user_location'];
     $chkUserImg = $result['user_profile_img'];
-    echo $chkUserLoc;
-    echo $dbLocation;
-    echo $chkUserScrN;
     if($dbScreenName != $chkUserScrN){
       $insertSQL = "UPDATE `user` SET `user_scr_name` = '$dbScreenName' WHERE `user_ID` = '$dbUserId'";
       if($connection->query($insertSQL) === TRUE){
