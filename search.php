@@ -15,15 +15,25 @@
 
 <body class = "login_backg">
 
+<div class = "row top login_text">
+
+<div class = "container">
+ <div class = "text-center">
+
 <p>
   <a class="btn btn-primary" data-toggle="collapse" href="#genre" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Search by Genre</a>
    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#review" aria-expanded="false" aria-controls="multiCollapseExample2">Search by Review</button>
 </p>
 
-<div class="collapse" id="genre">
+</div>
+</div>
+
+<div class = "container w-50">
+<div class = "col text-center ">
+<div class="collapse " id="genre">
   <div class="card card-body">
 
-   <form action = "./Search.php">
+   <form action = "./search.php">
 	<input type = "text" name = "search" placeholder = "Search by Title"/>
 	<br>
 	<select name="gens">
@@ -156,10 +166,16 @@ if(is_array($search_array)){
 
 	$search = ucfirst($_GET['search']);
 
+function removeZero(){
+	require 'db_conn.php';
+	$query = "DELETE FROM `movSearch` WHERE `movID` = 0";
+	$result = mysqli_query($connection, $query);
+}
 
 function idInDatabase($dbMov){
-	$connection = mysqli_connect("localhost", "root" , "mysql" , "finalData");
-	$result = mysqli_query($connection, "SELECT movID FROM movSearch WHERE movID = $dbMov");
+	require 'db_conn.php';
+	$query = "SELECT movID from `movSearch` WHERE movID = $dbMov";
+	$result = mysqli_query($connection, $query);
 	$result = mysqli_fetch_assoc($result);
 	$chkID = $result['movID'];
 	$connection->close();
@@ -171,9 +187,10 @@ function idInDatabase($dbMov){
 }
 
 function updateDatabase($dbMov,$dbSearch,$dbFirst,$dbGen) {
-	$connection = mysqli_connect("localhost", "root" , "mysql" , "finalData");
-	$result = mysqli_query($connection, "SELECT movID FROM movSearch WHERE movID = $dbMov");
-    $result = mysqli_fetch_assoc($result);
+    require 'db_conn.php';
+	$query = "SELECT movID FROM `movSearch` where movID = $dbMov";
+	$result = mysqli_query($connection, $query);
+	$result = mysqli_fetch_assoc($result);
     $chkSearch = $result['search'];
     $chkFirst = $result['firstMov'];
     $chkGen = $result['genCode'];
@@ -209,6 +226,7 @@ if(!idInDatabase($dbMov)){
 
 
   updateDatabase($dbMov,$dbSearch,$dbFirst,$dbGen);
+  removeZero();
 
   $connection->close();
 
@@ -216,11 +234,11 @@ if(!idInDatabase($dbMov)){
 	?>
   </div>
 </div>
+</div>
+</div>
 
 
-
-
-
+<div class = "container">
 <div class="col">
     <div class="collapse multi-collapse" id="review">
       <div class="card card-body">
@@ -234,5 +252,7 @@ if(!idInDatabase($dbMov)){
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</div>
 
 </body>
