@@ -20,7 +20,8 @@
           </li>
         </ul>
         <ul class="navbar-nav my-2 my-md-0">
-					<li class="nav-item">
+          <li class="nav-item"><img src="<?php echo $_SESSION['sess_profImg']; ?>" width=30 height=30 alt="Profile Pic"></li>
+          <li class="nav-item">
 						<?php session_start(); if (($_SESSION['logged_in']) == True) { ?>
 						<a class="nav-link" href="logout.php">LogOut</a>
 						<?php } else { ?>
