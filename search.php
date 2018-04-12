@@ -131,7 +131,7 @@ if(!empty($_GET['search'])){
 
 	$rec = array(); //array to get movie ids
 	$title = array(); //array to get movie titles
-
+  
 
 if(is_array($search_array)){
 	foreach($search_array[results] as $movie){

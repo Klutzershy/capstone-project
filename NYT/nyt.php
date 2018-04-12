@@ -50,7 +50,7 @@
 
 
 		/* Prints out all results to screen*/
-		for ($i = 0; $i < count($result[results]); $i++){
+		for ($i = 0; $i < 5; $i++){
 			echo "<br>";
 			echo "--------------------------------------------------";
 			echo "<br>";
