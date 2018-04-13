@@ -4,6 +4,7 @@ include 'moviesproject.com/twitter_app/grab_info.php';
 
 $place = $_SESSION['sess_location'];
 $place = str_replace(" ","+",$place);
+$place = str_replace(",","+",$place);
 
 $url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=movie+theater+in+".$place."&key=AIzaSyCJcbdw_nWmu-ZogZc0TbOPDWDKVDCd3MQ";
 
