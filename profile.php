@@ -1,10 +1,8 @@
 <div class="container">
   <div class="row">
         <div class="col-md-6">
-          <img src="<?php echo $_SESSION['sess_profImg']; ?>" alt="Profile Pic">
-          <?php
-            echo $_SESSION['sess_username'];
-          ?>
+        <h4>  <?php echo $_SESSION['sess_username']; ?></h4>
+        <small><cite><?php echo $_SESSION['sess_location']; ?></cite></small>
         </div>
         <div class="col-md-6">
 
