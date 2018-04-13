@@ -16,7 +16,7 @@
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: Location,
-          radius: 50000,
+          radius: '50000',
           type: ['movie_theater']
         }, callback);
       }
