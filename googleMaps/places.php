@@ -1,5 +1,12 @@
+<div style="height:0">
 <?php
-$url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=theaters+in+Philadelphia&key=AIzaSyCJcbdw_nWmu-ZogZc0TbOPDWDKVDCd3MQ";
+session_start();
+include 'moviesproject.com/twitter_app/grab_info.php';
+
+$place = $_SESSION['sess_location'];
+$place = str_replace(" ","+",$place);
+
+$url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=theaters+in+".$place."&key=AIzaSyCJcbdw_nWmu-ZogZc0TbOPDWDKVDCd3MQ";
 
 function get_json( $url )
 {
@@ -31,34 +38,37 @@ $urlX = get_json($url);
 
 $jsonD = json_decode($urlX,true);
 
-$server = "localhost";
-$username = "root";
-$password = "mysql";
-$databaseName = "projectData";
-
-$connection = new mysqli($server,$username,$password,$databaseName);
-
 $var = $jsonD['results'];
 
 $name = "";
 $address = "";
-for ($i=0; $i < 20; $i++) {
-  $name = $name."'".$var[$i]{'name'}."'".",";
+$arrayName = [];
+$arrayAddress = [];
+$arrayLat = [];
+$arrayLng = [];
+
+
+for ($i=0; $i <= 5; $i++) {
+  $arrayName[$i] = "'".$var[$i]{'name'}."'";
+  $arrayAddress[$i] = "'".$var[$i]{'formatted_address'}."'";
+  $arrayLat[$i] = $var[$i]['geometry']['location']{'lat'};
+  $arrayLng[$i] = $var[$i]['geometry']['location']{'lng'};
  }
 
-for ($i=0; $i < 20; $i++) {
-  $address = $address."'".$var[$i]{'formatted_address'}."'".",";
- }
+ $nameOne = $arrayName[0];
+ $nameTwo = $arrayName[1];
+ $nameThree = $arrayName[2];
+ $nameFour = $arrayName[3];
+ $nameFive = $arrayName[4];
 
- $name = rtrim($name, ",");
- $address = rtrim($address, ",");
+ $addressOne = $arrayAddress[0];
+ $addressTwo = $arrayAddress[1];
+ $addressThree = $arrayAddress[2];
+ $addressFour = $arrayAddress[3];
+ $addressFive = $arrayAddress[4];
 
- $insertSQL = "INSERT INTO cap (Name,Address) VALUES ('$name','$address')";
+ $latOne = $arrayLat[0];
+ $lngOne = $arrayLng[0];
 
- if($connection->query($insertSQL) === TRUE){
-   echo "Success!";
-       }else{
-   echo "Error: ".$insertSQL."<br>".$connection->error;
-       }
- $connection->close();
  ?>
+</div>

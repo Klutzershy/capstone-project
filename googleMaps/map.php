@@ -1,25 +1,35 @@
-<!DOCTYPE html>
-<html style="height:100%">
-  <head>
-    <title>Locator</title>
-    <script>
+<script>
       var map;
       var infowindow;
 
+
+      function GetLatlong()
+        {
+        var geocoder = new google.maps.Geocoder();
+        var address = "Rowan University";
+
+        geocoder.geocode({ 'address': address }, function (results, status) {
+
+            if (status == google.maps.GeocoderStatus.OK) {
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng();
+
+            }
+          });
+}
       function initMap() {
-        var Philadelphia = {lat: 39.9526, lng: -75.1652};
+        var Location = {lat: <?php $latOne ?>, lng: <?php $lngOne ?>};
 
         map = new google.maps.Map(document.getElementById('map'), {
-          center: Philadelphia,
+          center: Location,
           zoom: 15
         });
 
         infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
-          location: Philadelphia,
+          location: Location,
           radius: 50000,
-          type: ['store'],
           type: ['movie_theater']
         }, callback);
       }
@@ -44,10 +54,6 @@
           infowindow.open(map, this);
         });
       }
-    </script>
-  </head>
-  <body style="height:100%">
-    <div id="map" style="height:60%; margin:0"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJcbdw_nWmu-ZogZc0TbOPDWDKVDCd3MQ&libraries=places&callback=initMap" async defer></script>
-  </body>
-</html>
+</script>
+<div id="map" class="col-md-6" style="height:100%;margin:auto"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJcbdw_nWmu-ZogZc0TbOPDWDKVDCd3MQ&libraries=places&callback=initMap" async defer></script>
