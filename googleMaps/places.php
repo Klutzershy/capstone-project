@@ -71,12 +71,6 @@ for ($i=0; $i <= 5; $i++) {
  $latOne = $arrayLat[0];
  $lngOne = $arrayLng[0];
 
-  echo $nameOne;
-echo $nameTwo;
-echo $nameThree;
-echo $nameFour;
-echo $nameFive;
-
  $server = "localhost";
 $username = "teamCapstone";
 $password = "Robinson1!";
