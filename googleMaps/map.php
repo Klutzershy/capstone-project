@@ -1,24 +1,11 @@
+<?php include 'places.php';?>
 <script>
       var map;
       var infowindow;
 
 
-      function GetLatlong()
-        {
-        var geocoder = new google.maps.Geocoder();
-        var address = "Rowan University";
-
-        geocoder.geocode({ 'address': address }, function (results, status) {
-
-            if (status == google.maps.GeocoderStatus.OK) {
-                var latitude = results[0].geometry.location.lat();
-                var longitude = results[0].geometry.location.lng();
-
-            }
-          });
-}
       function initMap() {
-        var Location = {lat: <?php $latOne ?>, lng: <?php $lngOne ?>};
+        var Location = {lat: (<?php echo json_encode($latOne); ?>), lng: (<?php echo json_encode($lngOne); ?>)};
 
         map = new google.maps.Map(document.getElementById('map'), {
           center: Location,

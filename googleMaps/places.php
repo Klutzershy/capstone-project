@@ -1,4 +1,3 @@
-<div style="height:0">
 <?php
 session_start();
 include 'moviesproject.com/twitter_app/grab_info.php';
@@ -7,6 +6,7 @@ $place = $_SESSION['sess_location'];
 $place = str_replace(" ","+",$place);
 
 $url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=theaters+in+".$place."&key=AIzaSyCJcbdw_nWmu-ZogZc0TbOPDWDKVDCd3MQ";
+
 
 function get_json( $url )
 {
@@ -32,6 +32,7 @@ function get_json( $url )
 
     return ($result);
 }
+
 
 $urlX = get_json($url);
 
@@ -70,5 +71,45 @@ for ($i=0; $i <= 5; $i++) {
  $latOne = $arrayLat[0];
  $lngOne = $arrayLng[0];
 
+  echo $nameOne;
+echo $nameTwo;
+echo $nameThree;
+echo $nameFour;
+echo $nameFive;
+
+ $server = "localhost";
+$username = "teamCapstone";
+$password = "Robinson1!";
+$databaseName = "capstone2018";
+
+$connection = new mysqli($server,$username,$password,$databaseName);
+
+
+if($nameFive == ''){
+ if($nameFour == ''){
+  if($nameThree == ''){
+   if($nameTwo == ''){
+    if($nameOne == ''){
+      echo "No results";
+    }
+     $insertSQL = "INSERT INTO test (name,address,searched) VALUES ($nameOne,$addressOne,1) ON DUPLICATE KEY UPDATE searched = searched + 1; ";
+   }
+    $insertSQL = "INSERT INTO test (name,address,searched) VALUES ($nameOne,$addressOne,1), ($nameTwo,$addressTwo,1) ON DUPLICATE KEY UPDATE searched = searched + 1; ";
+  }
+    $insertSQL = "INSERT INTO test (name,address,searched) VALUES ($nameOne,$addressOne,1), ($nameTwo,$addressTwo,1), ($nameThree,$addressThree,1) ON DUPLICATE KEY UPDATE searched = searched + 1; ";
+ }
+   $insertSQL = "INSERT INTO test (name,address,searched) VALUES ($nameOne,$addressOne,1), ($nameTwo,$addressTwo,1), ($nameThree,$addressThree,1), ($nameFour,$addressFour,1) ON DUPLICATE KEY UPDATE searched = searched + 1; ";
+}elseif($nameFive !== ''){
+$insertSQL = "INSERT INTO test (name,address,searched) VALUES ($nameOne,$addressOne,1), ($nameTwo,$addressTwo,1), ($nameThree,$addressThree,1), ($nameFour,$addressFour,1), ($nameFive,$addressFive,1) ON DUPLICATE KEY UPDATE searched = searched + 1; ";
+};
+
+
+if($connection->query($insertSQL) === TRUE){
+       }else{
+   echo "Error: ".$insertSQL."<br>".$connection->error;
+       }
+
+$connection->close();
+
+
  ?>
-</div>
