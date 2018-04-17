@@ -1,15 +1,6 @@
-<head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Bootstrap core CSS (Must be First CSS Link) -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link type="text/css" href="custom_styles.css" rel="stylesheet"/>
 
-<title>Capstone Project</title>
-</head>
 
-<body class = "login_backg">
 
 <div class = "container-fluid card">
 	<div class = "row ">
@@ -47,6 +38,7 @@
 
 
 <?php
+
 
 if(isset($_GET['gens'])){
  if($_GET['gens'] == ''){
@@ -292,5 +284,3 @@ $dbGen = $genCode;
 	</div>
 	</div>
 </div>
-
-</body>
