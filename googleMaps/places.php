@@ -51,8 +51,8 @@ $arrayLng = [];
 
 
 for ($i=0; $i <= 5; $i++) {
-  $arrayName[$i] = "'".$var[$i]{'name'}."'";
-  $arrayAddress[$i] = "'".$var[$i]{'formatted_address'}."'";
+  $arrayName[$i] = '"'.$var[$i]{'name'}.'"';
+  $arrayAddress[$i] = '"'.$var[$i]{'formatted_address'}.'"';
   $arrayLat[$i] = $var[$i]['geometry']['location']{'lat'};
   $arrayLng[$i] = $var[$i]['geometry']['location']{'lng'};
  }
