@@ -35,7 +35,7 @@
 				include 'login.php';
 				break;
 			case 'search':
-				include 'search.php';
+				include 'newsearch.php';
 				break;
 			case 'profile':
 				include 'profile.php';
